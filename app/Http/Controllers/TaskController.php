@@ -45,4 +45,11 @@ class TaskController extends Controller
 
     return Response::json(['task' => $task]);
   }
+  public function destroyOne($id)
+  {
+    $task = Task::find($id);
+    $task->delete();
+
+    return Response::json(['success' => 'Task deleted.']);
+  }
 }
